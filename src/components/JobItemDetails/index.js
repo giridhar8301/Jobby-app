@@ -14,7 +14,7 @@ const apiStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
   failure: 'FAILURE',
-  inprogress: 'IN_PROGRESS',
+  inProgress: 'IN_PROGRESS',
 }
 
 class JobItemDetails extends Component {
@@ -28,7 +28,7 @@ class JobItemDetails extends Component {
     this.getJobData()
   }
 
-  getFormateedSimilarData = data => ({
+  getFormattedSimilarData = data => ({
     companyLogoUrl: data.company_logo_url,
     employmentType: data.employment_type,
     id: data.id,
@@ -59,7 +59,7 @@ class JobItemDetails extends Component {
   })
 
   getJobData = async () => {
-    this.setState({apiStatus: apiStatusConstants.inprogress})
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -72,17 +72,21 @@ class JobItemDetails extends Component {
       },
       method: 'GET',
     }
-    const response = await fetch(url, options)
 
+    const response = await fetch(url, options)
     if (response.ok === true) {
       const data = await response.json()
+      // console.log(data)
       const updatedData = this.getFormattedData(data.job_details)
-      const updatedSimilarData = data.similar_jobs.map(eachSimilarJob =>
-        this.getFormateedSimilarData(eachSimilarJob),
+      // console.log(updatedData)
+      const updatedSimilarJobsData = data.similar_jobs.map(eachSimilarJob =>
+        this.getFormattedSimilarData(eachSimilarJob),
       )
+      // console.log(updatedData)
+      // console.log(updatedSimilarJobsData)
       this.setState({
         jobData: updatedData,
-        similarJobsData: updatedSimilarData,
+        similarJobsData: updatedSimilarJobsData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -142,7 +146,6 @@ class JobItemDetails extends Component {
       skills,
     } = jobData
     const {description, imageUrl} = lifeAtCompany
-
     return (
       <div className="job-details-view-container">
         <div className="job-item">

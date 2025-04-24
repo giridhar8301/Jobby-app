@@ -1,57 +1,85 @@
+/* Background styling */
 .bg-container {
-  background-color: #272727;
-  height: 100vh;
-  padding: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Soft light background */
+  padding: 0 20px;
 }
+
+/* Form container styling */
 .form-container {
-  background-color: #2c364c;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
 }
+
+/* Logo container */
 .logo-container {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
+
 .logo {
-  width: 100px;
+  width: 150px;
+  height: auto;
 }
+
+/* Input container for labels and inputs */
 .input-container {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 25px;
 }
+
+/* Labels styling */
 .userlabel {
-  font-size: 10px;
-  font-family: 'Roboto';
-  color: #ffffff;
-  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057; /* Darker text color for labels */
+  margin-bottom: 8px;
+  display: block;
 }
+
+/* Inputs styling */
 .userinput {
-  border: 1px solid #cbd5e1;
-  background-color: transparent;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
   outline: none;
-  border-radius: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 10px;
-  padding-bottom: 8px;
-  margin-bottom: 10px;
-  width: 50vh;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease-in-out;
 }
+
+.userinput:focus {
+  border-color: #007bff; /* Focused input border color */
+}
+
+/* Button styling */
 .button {
-  background-color: #4f46e5;
-  color: #ffffff;
-  border-radius: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 10px;
-  padding-bottom: 8px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
   border: none;
-  outline: none;
   cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Error message styling */
+.errorMsg {
+  color: #ff3d3d; /* Red color for error message */
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
 }
